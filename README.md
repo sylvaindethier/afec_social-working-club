@@ -6,34 +6,32 @@ To run the Social Working Club web application, you first need to have the sourc
 
 Then complete the following instructions to install and run both the `backend` and the `frontend`.
 
-**Backend:**
+**--> Backend:**
 
-Go to the `backend` directory: `cd backend`
-Install the project: `npm install`
-Run the server:
+*  Go to the `backend` directory: `cd backend`
+*  Install the project: `npm install`
+*  Run the server:
+   *  for development: `npm run dev`
+   *  for production: `npm run start`
 
-* for development: `npm run dev`
-* for production: `npm run start`
+**--> Frontend:**
 
-**Frontend:**
-
-Got to the `frontend` directory: `cd frontend`
-Install the project: `npm install`
-Run the server:
-
-* for development: `npm run dev`
-* for production: `npm run build && npm run preview`
+*  Got to the `frontend` directory: `cd frontend`
+*  Install the project: `npm install`
+*  Run the server:
+   *  for development: `npm run dev`
+   *  for production: `npm run build && npm run preview`
 
 ## Stack
 
-**Backend:**
+**--> Backend:**
 
-* Express
-* MongoDB via Mongoose
+*  Express
+*  MongoDB via Mongoose
 
-**Frontend:**
+**--> Frontend:**
 
-* React via ViteJS
+*  React via ViteJS
 
 ## Database
 
