@@ -8,30 +8,30 @@ Then complete the following instructions to install and run both the `backend` a
 
 **--> Backend:**
 
-*  Go to the `backend` directory: `cd backend`
-*  Install the project: `npm install`
-*  Run the server:
-   *  for development: `npm run dev`
-   *  for production: `npm run start`
+* Go to the `backend` directory: `cd backend`
+* Install the project: `npm install`
+* Run the server:
+  * for development: `npm run dev`
+  * for production: `npm run start`
 
 **--> Frontend:**
 
-*  Got to the `frontend` directory: `cd frontend`
-*  Install the project: `npm install`
-*  Run the server:
-   *  for development: `npm run dev`
-   *  for production: `npm run build && npm run preview`
+* Got to the `frontend` directory: `cd frontend`
+* Install the project: `npm install`
+* Run the server:
+  * for development: `npm run dev`
+  * for production: `npm run build && npm run preview`
 
 ## Stack
 
 **--> Backend:**
 
-*  Express
-*  MongoDB via Mongoose
+* Express
+* MongoDB via Mongoose
 
 **--> Frontend:**
 
-*  React via ViteJS
+* React via ViteJS
 
 ## Database
 
