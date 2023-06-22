@@ -1,0 +1,157 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: Post API
+  description: CRUD for Post
+
+servers:
+  - url: 'localhost:3000'
+
+paths:
+  /post/:
+    # POST: Create a Post
+    post:
+      summary: Create a Post
+      responses:
+        200:
+          description: The created Post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        400:
+          description: Can not create a Post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /post/{id}:
+    parameters:
+      - name: id
+        description: The Post id
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/PostId'
+    # GET: Get a Post by id
+    get:
+      summary: Get a Post
+      responses:
+        200:
+          description: The Post corresponding to the provided `id`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        404:
+          description: No Post found for the provided `id`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    # PUT: Update a Post by id
+    put:
+      summary: Update a Post
+      responses:
+        200:
+          description: The Post corresponding to the provided `id`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        404:
+          description: No Post found for the provided `id`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    # DELETE: Delete a Post by id
+    delete:
+      summary: Delete a Post
+      responses:
+        200:
+          description: The Post has been deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        404:
+          description: No Post found for the provided `id`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    PostId:
+      description: The unique identifier of a Post
+      type: string
+    Post:
+      type: object
+      required:
+        - id
+        - title
+        - text
+        - image_path
+        - created_at
+      properties:
+        id:
+          $ref: '#/components/schemas/SpacecraftId'
+        title:
+          type: string
+        text:
+          type: string
+        image_path:
+          type: string
+        created_at:
+          type: string
+    Success:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable success message
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+security:
+  - ApiKey: []
