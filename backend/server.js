@@ -1,8 +1,10 @@
-// Create HTTP server
-const http = require("http");
-const app = require("./app");
+// Configure dotenv
+import "dotenv/config";
+import { createServer } from "http";
+// import app, { set } from "./app";
+import app from "./app.js";
 
-const normalizePort = (value) => {
+function normalizePort(value) {
   const port = parseInt(value);
   if (isNaN(port)) {
     return value;
@@ -16,6 +18,7 @@ const normalizePort = (value) => {
 };
 
 const port = normalizePort(process.env.PORT || 3000);
+// set("port", port);
 app.set("port", port);
 
 const errorHandler = (error) => {
@@ -43,7 +46,8 @@ const errorHandler = (error) => {
   }
 };
 
-const server = http.createServer(app);
+// Create HTTP server
+const server = createServer(app);
 server.on("error", errorHandler);
 server.on("listening", () => {
   const address = server.address();
