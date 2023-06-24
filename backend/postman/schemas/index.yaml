@@ -32,6 +32,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /post/all/:
+    # GET: Get all Post
+    get:
+      summary: Get all Post
+      responses:
+        200:
+          description: All the Post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCollection'
+        400:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /post/{id}:
     parameters:
       - name: id
@@ -40,6 +64,7 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/PostId'
+
     # GET: Get a Post by id
     get:
       summary: Get a Post
@@ -123,7 +148,7 @@ components:
         - created_at
       properties:
         id:
-          $ref: '#/components/schemas/SpacecraftId'
+          $ref: '#/components/schemas/PostId'
         title:
           type: string
         text:
@@ -131,7 +156,11 @@ components:
         image_path:
           type: string
         created_at:
-          type: string
+          type: number
+    PostCollection:
+      type: array
+      items: {}
+  
     Success:
       type: object
       required:
@@ -148,10 +177,10 @@ components:
         message:
           description: A human readable error message
           type: string
-  securitySchemes:
-    ApiKey:
-      type: apiKey
-      in: header
-      name: X-Api-Key
-security:
-  - ApiKey: []
+#  securitySchemes:
+#    ApiKey:
+#      type: apiKey
+#      in: header
+#      name: X-Api-Key
+#security:
+#  - ApiKey: []
