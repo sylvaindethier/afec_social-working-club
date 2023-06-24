@@ -2,13 +2,14 @@ openapi: '3.0.0'
 info:
   version: '1.0.0'
   title: Post API
-  description: CRUD for Post
+  description: CRUD and Index for Post
 
 servers:
   - url: 'localhost:3000'
 
 paths:
   /post/:
+
     # POST: Create a Post
     post:
       summary: Create a Post
@@ -32,13 +33,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /post/all/:
-    # GET: Get all Post
+    # GET: Get Post index
     get:
-      summary: Get all Post
+      summary: Get Post index
       responses:
         200:
-          description: All the Post
+          description: The Post index
           content:
             application/json:
               schema:
@@ -65,7 +65,7 @@ paths:
         schema:
           $ref: '#/components/schemas/PostId'
 
-    # GET: Get a Post by id
+    # GET: Read a Post by id
     get:
       summary: Get a Post
       responses:
@@ -133,11 +133,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
 components:
   schemas:
+
     PostId:
       description: The unique identifier of a Post
       type: string
+
     Post:
       type: object
       required:
@@ -157,10 +160,11 @@ components:
           type: string
         created_at:
           type: number
+
     PostCollection:
       type: array
       items: {}
-  
+
     Success:
       type: object
       required:
@@ -169,6 +173,7 @@ components:
         message:
           description: A human readable success message
           type: string
+
     Error:
       type: object
       required:
@@ -177,10 +182,12 @@ components:
         message:
           description: A human readable error message
           type: string
+
 #  securitySchemes:
 #    ApiKey:
 #      type: apiKey
 #      in: header
 #      name: X-Api-Key
+
 #security:
 #  - ApiKey: []
