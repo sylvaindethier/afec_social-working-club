@@ -1,21 +1,21 @@
 {
 	"info": {
-		"_postman_id": "2cba9d49-5f07-4186-b537-78d1a57ca35f",
-		"name": "Post",
-		"description": "CRUD for Post",
+		"_postman_id": "750d2e04-8dc2-4421-b596-7fbf46002fa6",
+		"name": "Pub API",
+		"description": "Pub API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "25265730-2cba9d49-5f07-4186-b537-78d1a57ca35f"
+		"_uid": "25265730-750d2e04-8dc2-4421-b596-7fbf46002fa6"
 	},
 	"item": [
 		{
-			"name": "post",
+			"name": "pub",
 			"item": [
 				{
 					"name": "{id}",
 					"item": [
 						{
-							"name": "Get a Post",
-							"id": "0bbc61a6-06bb-40b7-8688-40651b5e1db3",
+							"name": "Get a Pub",
+							"id": "df44cfd5-3fab-4a35-afd4-01f003cfb0ab",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -28,26 +28,26 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/post/:id",
+									"raw": "{{baseUrl}}/pub/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"post",
+										"pub",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "<string>"
+											"value": ""
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "1777d0b4-aa2f-4a59-bfbd-10e24a75fb0c",
-									"name": "The Post corresponding to the provided `id`",
+									"id": "5e1352fe-737c-485f-8712-9231fa7973ad",
+									"name": "The Pub corresponding to the provided `id`",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -57,12 +57,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -74,7 +74,7 @@
 									},
 									"status": "OK",
 									"code": 200,
-									"_postman_previewlanguage": "json",
+									"_postman_previewlanguage": "Text",
 									"header": [
 										{
 											"key": "Content-Type",
@@ -82,11 +82,11 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"image_path\": \"<string>\",\n  \"created_at\": \"<number>\"\n}"
+									"body": "{\n  \"_id\": \"<string>\",\n  \"_user_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"image_string\": \"<string>\",\n  \"__v\": \"<number>\"\n}"
 								},
 								{
-									"id": "5c89c9ae-05e9-4f3a-9d25-8c4888bd1127",
-									"name": "No Post found for the provided `id`",
+									"id": "07359a11-4a67-4ecb-9cfb-cc44479ab73e",
+									"name": "No Pub found for the provided `_id`",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -96,12 +96,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -124,7 +124,7 @@
 									"body": "{\n  \"message\": \"<string>\"\n}"
 								},
 								{
-									"id": "b671640b-dca4-4ed8-ae8c-54a1bc59fd31",
+									"id": "79592388-ea59-4a08-b640-61c9a1cf274a",
 									"name": "Unexpected error",
 									"originalRequest": {
 										"method": "GET",
@@ -135,12 +135,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -165,8 +165,8 @@
 							]
 						},
 						{
-							"name": "Update a Post",
-							"id": "0c8cbef9-9aad-45c3-a396-847b4f94dedb",
+							"name": "Update a Pub",
+							"id": "3697b4d5-6002-447a-b574-668f3de0f725",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -178,27 +178,36 @@
 										"value": "application/json"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test update title\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "{{baseUrl}}/post/:id",
+									"raw": "{{baseUrl}}/pub/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"post",
+										"pub",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "<string>"
+											"value": ""
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "b9a23045-a9b9-474d-abaa-662915930f12",
-									"name": "The Post corresponding to the provided `id`",
+									"id": "0bec9453-7d31-4737-a1d5-064a49c65e89",
+									"name": "No Pub found for the provided `_id`",
 									"originalRequest": {
 										"method": "PUT",
 										"header": [
@@ -208,51 +217,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"image_path\": \"<string>\",\n  \"created_at\": \"<number>\"\n}"
-								},
-								{
-									"id": "53569908-d0f8-4982-a020-9922a09b7742",
-									"name": "No Post found for the provided `id`",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/post/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -275,7 +245,7 @@
 									"body": "{\n  \"message\": \"<string>\"\n}"
 								},
 								{
-									"id": "50aa6e6f-86e0-41ba-9cf0-7610c103a959",
+									"id": "b949ccce-6e36-41e2-8829-4b0a2ecfaf31",
 									"name": "Unexpected error",
 									"originalRequest": {
 										"method": "PUT",
@@ -286,12 +256,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -312,12 +282,60 @@
 									],
 									"cookie": [],
 									"body": "{\n  \"message\": \"<string>\"\n}"
+								},
+								{
+									"id": "f10fb4ed-2a62-44df-8305-ef8bd7aa3122",
+									"name": "The Pub corresponding to the provided `id`",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Test update title\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/pub/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"pub",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "Text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"_user_id\": \"occaecat a\",\n  \"title\": \"elit velit\",\n  \"text\": \"officia in sint\",\n  \"image_string\": \"ut irure\",\n  \"created_at\": \"culpa\",\n  \"_id\": \"aute Lorem fugiat deserunt exercitation\",\n  \"__v\": 85739941.17439142\n}"
 								}
 							]
 						},
 						{
-							"name": "Delete a Post",
-							"id": "f9ec3b84-8a5a-4b98-a396-06f8d1e1fa2f",
+							"name": "Delete a Pub",
+							"id": "bb0905a7-f40b-4f38-8478-ad85b92310f7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -330,26 +348,26 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/post/:id",
+									"raw": "{{baseUrl}}/pub/:id",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"post",
+										"pub",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "<string>"
+											"value": ""
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "efc1178f-3288-4c87-b6b0-23b26b5ee806",
-									"name": "The Post has been deleted",
+									"id": "41ffa3f8-77c6-4559-810e-58c5078676b5",
+									"name": "The Pub has been deleted",
 									"originalRequest": {
 										"method": "DELETE",
 										"header": [
@@ -359,12 +377,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -380,15 +398,18 @@
 									"header": [
 										{
 											"key": "Content-Type",
-											"value": "application/json"
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"message\": \"<string>\"\n}"
+									"body": "{\n    \"message\": \"<string>\",\n    \"_user_id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"text\": \"<string>\",\n    \"image_string\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"_id\": \"<string>\",\n    \"__v\": \"<number>\"\n}"
 								},
 								{
-									"id": "b69eb4eb-cde1-4c79-a832-1379661c7cd5",
-									"name": "No Post found for the provided `id`",
+									"id": "2478ddb6-cf3f-4fbe-9bb5-a2b279a91264",
+									"name": "No Pub found for the provided `id`",
 									"originalRequest": {
 										"method": "DELETE",
 										"header": [
@@ -398,12 +419,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -426,7 +447,7 @@
 									"body": "{\n  \"message\": \"<string>\"\n}"
 								},
 								{
-									"id": "55ed19c3-b6c1-4a37-ac2d-a70d9e1751b1",
+									"id": "643f23ee-4b2c-4c5e-8566-0c2e7429fd37",
 									"name": "Unexpected error",
 									"originalRequest": {
 										"method": "DELETE",
@@ -437,12 +458,12 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/post/:id",
+											"raw": "{{baseUrl}}/pub/:id",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
-												"post",
+												"pub",
 												":id"
 											],
 											"variable": [
@@ -467,177 +488,62 @@
 							]
 						}
 					],
-					"id": "3100d2b0-2763-4a12-8f1c-703feef5c4d2"
+					"id": "28b0cde6-d572-43d8-8f54-6ebb7a17b2fc"
 				},
 				{
-					"name": "all",
-					"item": [
-						{
-							"name": "Get all Post",
-							"id": "baee19b4-140c-4038-b18f-366d4f37ac0c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/post/all/",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"post",
-										"all",
-										""
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "52e1ed3d-8ad1-4ca1-b915-b4ad82cd2348",
-									"name": "All the Post",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/post/all/",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"post",
-												"all",
-												""
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[]"
-								},
-								{
-									"id": "5faaa58b-cd74-4b4a-ab0e-1800cdf1ab3b",
-									"name": "Error",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/post/all/",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"post",
-												"all",
-												""
-											]
-										}
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"message\": \"<string>\"\n}"
-								},
-								{
-									"id": "47eef0eb-fa78-45cc-918d-6cce14a23568",
-									"name": "Unexpected error",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/post/all/",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"post",
-												"all",
-												""
-											]
-										}
-									},
-									"status": "Internal Server Error",
-									"code": 500,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"message\": \"<string>\"\n}"
-								}
-							]
-						}
-					],
-					"id": "3cc70cf9-5311-4b2e-b01b-baa13f0455b9"
-				},
-				{
-					"name": "Create a Post",
-					"id": "d46851fc-9ad0-4d14-91c9-8466917be04f",
+					"name": "Create a Pub",
+					"id": "3b4e4c5e-87c9-44e5-b608-0458c04a5d10",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_user_id",
+									"value": "test-user_id",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Test `title`",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "Test pour une publication.\nOn test aussi le `text` sur plusieurs lignes.\n\nFin de la publication.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/Downloads/866-200x300.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
 							}
-						],
+						},
 						"url": {
-							"raw": "{{baseUrl}}/post/",
+							"raw": "{{baseUrl}}/pub/",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"post",
+								"pub",
 								""
 							]
 						}
 					},
 					"response": [
 						{
-							"id": "8f51416f-e6c1-44e6-8985-18941120ae3d",
-							"name": "The created Post",
+							"id": "2ed83014-3734-45c2-adb5-35fca92f7f25",
+							"name": "Success",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -647,19 +553,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/post/",
+									"raw": "{{baseUrl}}/pub/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"post",
+										"pub",
 										""
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
 							"header": [
 								{
 									"key": "Content-Type",
@@ -667,11 +573,11 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"image_path\": \"<string>\",\n  \"created_at\": \"<number>\"\n}"
+							"body": "{\n  \"_id\": \"<string>\",\n  \"_user_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"text\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"image_string\": \"<string>\",\n  \"__v\": \"<number>\"\n}"
 						},
 						{
-							"id": "ec71003a-033d-4dd5-96ad-951f3a8ab7bc",
-							"name": "Can not create a Post",
+							"id": "98d5a15b-3381-4825-8139-517485a510f4",
+							"name": "Error",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -681,12 +587,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/post/",
+									"raw": "{{baseUrl}}/pub/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"post",
+										"pub",
 										""
 									]
 								}
@@ -704,7 +610,7 @@
 							"body": "{\n  \"message\": \"<string>\"\n}"
 						},
 						{
-							"id": "8a6a8ab3-1381-4272-8a9f-9e9984180cce",
+							"id": "41f74f47-8bf0-4008-8e09-757d61b7e2fa",
 							"name": "Unexpected error",
 							"originalRequest": {
 								"method": "POST",
@@ -715,12 +621,142 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/post/",
+									"raw": "{{baseUrl}}/pub/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"post",
+										"pub",
+										""
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Pub index",
+					"id": "31c4d743-3779-4830-ac0e-1a79de54a031",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/pub/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pub",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "858d6893-1834-43c5-91df-aece0d43da39",
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pub/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pub",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						},
+						{
+							"id": "37c09552-5cd7-43ae-882c-86768cfc45e3",
+							"name": "Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pub/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pub",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						},
+						{
+							"id": "ee77c8ef-69be-45d7-a126-b25d7f8b4781",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pub/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pub",
 										""
 									]
 								}
@@ -740,14 +776,37 @@
 					]
 				}
 			],
-			"id": "67e23909-eabf-4807-87cf-e8cbb3f367e8"
+			"id": "895dec7f-9179-4eee-bce1-049d3f6a2514"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f5a5d3d2-cfcb-4ff5-94e1-a92e6f1e44d5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cb60de59-063e-4d8b-8a27-0cff6f2d2ae8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
 		{
-			"id": "6c20524c-3691-41d2-acbe-dcd5e0789cd7",
+			"id": "04e889b4-af71-4191-bd54-fe90205c9aa5",
 			"key": "baseUrl",
-			"value": "localhost:3000"
+			"value": "localhost:7000",
+			"type": "any"
 		}
 	]
 }

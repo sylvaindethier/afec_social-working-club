@@ -1,48 +1,25 @@
 openapi: '3.0.0'
 info:
   version: '1.0.0'
-  title: Post API
-  description: CRUD and Index for Post
+  title: Pub API
+  description: Pub API
 
 servers:
-  - url: 'localhost:3000'
+  - url: 'localhost:7000'
 
 paths:
-  /post/:
+  /pub/:
 
-    # POST: Create a Post
+    # POST: Create a Pub
     post:
-      summary: Create a Post
+      summary: Create a Pub
       responses:
-        200:
-          description: The created Post
+        201:
+          description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
-        400:
-          description: Can not create a Post
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-    # GET: Get Post index
-    get:
-      summary: Get Post index
-      responses:
-        200:
-          description: The Post index
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PostCollection'
+                $ref: '#/components/schemas/Pub'
         400:
           description: Error
           content:
@@ -56,27 +33,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /post/{id}:
+    # GET: Get Pub index
+    get:
+      summary: Get Pub index
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PubArray'
+        400:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /pub/{id}:
     parameters:
       - name: id
-        description: The Post id
+        description: The Pub id
         in: path
         required: true
         schema:
-          $ref: '#/components/schemas/PostId'
+          $ref: '#/components/schemas/Pub_id'
 
-    # GET: Read a Post by id
+    # GET: Get a Pub by id
     get:
-      summary: Get a Post
+      summary: Get a Pub
       responses:
         200:
-          description: The Post corresponding to the provided `id`
+          description: The Pub corresponding to the provided `id`
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                $ref: '#/components/schemas/Pub'
         404:
-          description: No Post found for the provided `id`
+          description: No Pub found for the provided `id`
           content:
             application/json:
               schema:
@@ -88,18 +88,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-    # PUT: Update a Post by id
+    # PUT: Update a Pub by id
     put:
-      summary: Update a Post
+      summary: Update a Pub
       responses:
-        200:
-          description: The Post corresponding to the provided `id`
+        201:
+          description: The Pub corresponding to the provided `id`
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                $ref: '#/components/schemas/Pub'
         404:
-          description: No Post found for the provided `id`
+          description: No Pub found for the provided `id`
           content:
             application/json:
               schema:
@@ -111,18 +111,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-    # DELETE: Delete a Post by id
+    # DELETE: Delete a Pub by id
     delete:
-      summary: Delete a Post
+      summary: Delete a Pub
       responses:
         200:
-          description: The Post has been deleted
+          description: The Pub has been deleted
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Success'
+                $ref: '#/components/schemas/Pub'
         404:
-          description: No Post found for the provided `id`
+          description: No Pub found for the provided `id`
           content:
             application/json:
               schema:
@@ -137,42 +137,38 @@ paths:
 components:
   schemas:
 
-    PostId:
-      description: The unique identifier of a Post
+    Pub_id:
+      description: The unique identifier of a Pub
       type: string
 
-    Post:
+    Pub:
       type: object
       required:
-        - id
+        - _id
+        - _user_id
         - title
         - text
-        - image_path
         - created_at
       properties:
-        id:
-          $ref: '#/components/schemas/PostId'
+        _id:
+          $ref: '#/components/schemas/Pub_id'
+        _user_id:
+          type: string
         title:
           type: string
         text:
           type: string
+        created_at:
+          type: string
         image_path:
           type: string
-        created_at:
+        __v:
           type: number
 
-    PostCollection:
+    PubArray:
       type: array
-      items: {}
-
-    Success:
-      type: object
-      required:
-        - message
-      properties:
-        message:
-          description: A human readable success message
-          type: string
+      items:
+        $ref: '#/components/schemas/Pub'
 
     Error:
       type: object
