@@ -26,7 +26,7 @@ Then complete the following instructions to install and run both the `backend` a
 
 **--> Backend:**
 
-* Express
+* Fastify
 * MongoDB via Mongoose
 
 **--> Frontend:**
@@ -38,18 +38,19 @@ Then complete the following instructions to install and run both the `backend` a
 ```mermaid
 erDiagram
 USER ||--|| ROLE: is
-USER ||--o{ POST: publish
-USER }o--|| POST: like
+USER ||--o{ PUB: create
+USER }o--|| PUB: like
 USER {
   string email
-  string password
+  string passwordHash
+  string username
 }
 ROLE {
   string name
 }
-POST {
+PUB {
   string title
-  string(2000) text
+  string text
   string image_path
   date   created_at
 }
