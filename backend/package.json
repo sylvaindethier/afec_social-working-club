@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Social Working Club -- backend",
   "type": "module",
-  "main": "./src/start.ts",
+  "//main": "./src/start.ts",
   "imports": {
     "#src/*": "./src/*",
     "#app/*": "./src/app/*",
@@ -11,17 +11,18 @@
     "#domains/*": "./src/app/domains/*"
   },
   "scripts": {
-    ":start": "ts-node ./src/start.ts",
+    ":start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./src/start.ts",
     ":start:watch": "nodemon ./src/start.ts",
-    "dev:start": "NODE_ENV=development npm run :start:watch",
+    "dev:start": "NODE_ENV=development npm run :start",
+    "dev:start:watch": "NODE_ENV=development npm run :start:watch",
+    "dev": "npm run dev:start:watch",
     "prod:start": "NODE_ENV=production npm run :start",
-    "dev": "npm run dev:start",
     "prod": "npm run prod:start",
-    ":db:reset": "ts-node ./src/db/reset.ts",
+    ":db:reset": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./src/db/reset.ts",
     "dev:db:reset": "NODE_ENV=development npm run :db:reset",
     "prod:db:reset": "NODE_ENV=production npm run :db:reset",
     "test:db:reset": "NODE_ENV=test npm run :db:reset",
-    "test": "NODE_ENV=test ts-node ./src/test.ts",
+    "test": "NODE_ENV=test node --no-warnings=ExperimentalWarning --loader ts-node/esm ./src/test.ts",
     "test:watch": "NODE_ENV=test nodemon ./src/test.ts"
   },
   "author": "Sylvain Dethier",

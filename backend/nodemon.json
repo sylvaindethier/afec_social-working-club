@@ -1,4 +1,9 @@
 {
+  "execMap": {
+    "////ts": "ts-node",
+    "ts": "node --no-warnings=ExperimentalWarning --loader ts-node/esm"
+  },
+
   "events": {
     "start": "clear || cls"
   }
