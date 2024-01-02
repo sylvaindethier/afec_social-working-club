@@ -9,13 +9,7 @@ const schema = z.string().email();
  * @returns {boolean} Whether or not the value is a valid email
  */
 export function email_validate(value: string): boolean {
-  // return emailRegExp.test(value);
-  try {
-    schema.parse(value);
-    return true;
-  } catch {
-    return false;
-  }
+  return schema.safeParse(value).success;
 }
 
 /**

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Users / Create</title>
+  <style>
+    label:has(+ input:required)::after {
+      content: "*";
+      color: red;
+      font-weight: bold;
+      font-size: 125%;
+    }
+    input:invalid {
+      background-color: lightpink;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Créer un utilisateur (REST)</h2>
+  <form method="post" action="http://localhost:3000/api/users">
+    <br>
+    <label for="user.email">Email</label>
+    <input name="email" required id="user.email" type="email" placeholder="email@example.com">
+
+    <br>
+    <label for="user.password">Mot de passe</label>
+    <input name="password" required id="user.password" type="password" placeholder="Mot de passe">
+    <label for="user.password_confirm">Confirmer le mot de passe</label>
+    <input name="password_confirm" required id="user.password_confirm" type="password" placeholder="Mot de passe">
+
+    <br>
+    <label for="user.username">Nom d'utilisateur</label>
+    <input name="username" id="user.username" type="text" pattern="\w+">
+
+    <br>
+    <button type="submit">Créer</button>
+  </form>
+
+  <hr>
+
+  <h2>Créer un utilisateur (Verbose)</h2>
+  <form method="post" action="http://localhost:3000/api/users/create">
+    <br>
+    <label for="user.email">Email</label>
+    <input name="email" required id="user.email" type="email" placeholder="email@example.com">
+
+    <br>
+    <label for="user.password">Mot de passe</label>
+    <input name="password" required id="user.password" type="password" placeholder="Mot de passe">
+    <label for="user.password_confirm">Confirmer le mot de passe</label>
+    <input name="password_confirm" required id="user.password_confirm" type="password" placeholder="Mot de passe">
+
+    <br>
+    <label for="user.username">Nom utilisateur</label>
+    <input name="username" id="user.username" type="text" pattern="\w+">
+
+    <br>
+    <button type="submit">Créer</button>
+  </form>
+</body>
+
+</html>

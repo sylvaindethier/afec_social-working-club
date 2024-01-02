@@ -1,0 +1,21 @@
+### Create a User (RESTful)
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "email": "foo@example.com",
+  "password": "P4ssw0rD",
+  "password_confirm": "P4ssw0rD",
+  "username": ""
+}
+
+### Create a User (Verbose)
+POST http://localhost:3000/api/users/create
+Content-Type: application/json
+
+{
+  "email": "foo@example.com",
+  "password": "P4ssw0rD",
+  "password_confirm": "P4ssw0rD",
+  "username": "Fo0"
+}
