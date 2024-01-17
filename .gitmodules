@@ -1,3 +1,6 @@
-[submodule "social-app_backend"]
-	path = social-app_backend
+[submodule "backend"]
+	path = backend
 	url = https://github.com/sylvaindethier/social-app_backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/sylvaindethier/social-app_frontend.git
