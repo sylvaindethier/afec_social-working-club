@@ -1,57 +1,36 @@
 # Social Working Club
 
-To run the Social Working Club web application, you first need to have the source on the machine by either `git clone` or whatever
+## Update
+
+The `backend` and the `frontend` are Git submodules dependencies that need to be updated
+
+```bash
+# update git submodules
+git pull
+```
 
 ## Install
 
-Then complete the following instructions to install and run both the `backend` and the `frontend`.
+Install the `backend`:
 
-**--> Backend:**
+```bash
+cd backend
 
-* Go to the `backend` directory: `cd backend`
-* Install the project: `npm install`
-* Run the server:
-  * for development: `npm run dev`
-  * for production: `npm run start`
+# install with pnpm
+pnpm install
 
-**--> Frontend:**
+# or install with npm
+npm install
+```
 
-* Got to the `frontend` directory: `cd frontend`
-* Install the project: `npm install`
-* Run the server:
-  * for development: `npm run dev`
-  * for production: `npm run build && npm run preview`
+Install the `frontend`:
 
-## Stack
+```bash
+cd frontend
 
-**--> Backend:**
+# install with pnpm
+pnpm install
 
-* Fastify
-* MongoDB via Mongoose
-
-**--> Frontend:**
-
-* React via ViteJS
-
-## Database
-
-```mermaid
-erDiagram
-USER ||--|| ROLE: is
-USER ||--o{ PUB: create
-USER }o--|| PUB: like
-USER {
-  string email
-  string passwordHash
-  string username
-}
-ROLE {
-  string name
-}
-PUB {
-  string title
-  string text
-  string image_path
-  date   created_at
-}
+# or install with npm
+npm install
 ```
